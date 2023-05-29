@@ -17,12 +17,8 @@ public class Statistics {
     private Integer availableSeats;
     @JsonProperty("number_of_purchased_tickets")
     private Integer purchasedTickets;
-    private final Room cinemaRoom;
 
-
-    @Autowired
     public Statistics(Room cinemaRoom) {
-        this.cinemaRoom = cinemaRoom;
         this.income = 0;
         this.availableSeats = 81;
         this.purchasedTickets = 0;

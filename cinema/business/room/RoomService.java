@@ -25,7 +25,6 @@ public class RoomService {
     private final Room cinemaRoom;
     private final Statistics stats;
 
-    @Autowired
     public RoomService(SeatRepository seatRepo, Room cinemaRoom, Statistics stats) {
         this.seatRepo = seatRepo;
         this.cinemaRoom = cinemaRoom;
@@ -37,7 +36,6 @@ public class RoomService {
         return StreamSupport.stream(allSeats.spliterator(), false)
                 .filter(seat -> !seat.isPurchased())
                 .collect(Collectors.toList());
-
     }
 
     public SeatDTO purchaseTicket(SeatRequest request) {

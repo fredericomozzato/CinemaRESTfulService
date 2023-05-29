@@ -25,12 +25,10 @@ import java.util.Map;
 
 @RestController
 public class Controller {
-
     private final Room cinemaRoom;
     private final RoomService roomService;
     private final StatisticsService statsService;
 
-    @Autowired
     public Controller(Room cinemaRoom, RoomService roomService, StatisticsService statsService) {
         this.cinemaRoom = cinemaRoom;
         this.roomService = roomService;
@@ -58,8 +56,6 @@ public class Controller {
     public StatisticsDTO getStats(@RequestParam(value = "password", required = false) String password) {
         return this.statsService.getStats(password);
     }
-
-
 
 
     // exception handlers

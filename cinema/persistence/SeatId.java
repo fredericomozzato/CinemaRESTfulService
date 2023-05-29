@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class SeatId implements Serializable {
-
     private int seatRow;
     private int seatColumn;
 

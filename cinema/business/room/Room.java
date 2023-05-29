@@ -22,7 +22,6 @@ public class Room {
     private List<Seat> seats;
     private final SeatRepository repo;
 
-    @Autowired
     public Room(SeatRepository repo) {
         this.seatsPerRow = 9;
         this.numberOfRows = 9;
@@ -84,7 +83,6 @@ public class Room {
         if (seat.isPurchased()) {
             throw new UnavailableTicketException("The ticket has been already purchased!");
         }
-
         seat.setPurchased(true);
         seat.setToken(UUID.randomUUID());
 
@@ -95,8 +93,6 @@ public class Room {
         Optional<Seat> optionalSeat = this.seats.stream()
                 .filter(s -> token.equals(s.getToken()))
                 .findFirst();
-
         return optionalSeat.orElseThrow(() -> new WrongTokenException("Wrong token!"));
     }
-
 }

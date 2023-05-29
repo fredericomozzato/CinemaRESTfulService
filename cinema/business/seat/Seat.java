@@ -83,5 +83,4 @@ public class Seat {
     public void setToken(UUID token) {
         this.token = token;
     }
-
 }

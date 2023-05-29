@@ -6,10 +6,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class StatisticsService {
-
     private final Statistics stats;
 
-    @Autowired
     public StatisticsService(Statistics stats) {
         this.stats = stats;
     }

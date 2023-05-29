@@ -8,5 +8,4 @@ public class WrongTokenException extends RuntimeException {
     public WrongTokenException(String cause) {
         super(cause);
     }
-
 }
