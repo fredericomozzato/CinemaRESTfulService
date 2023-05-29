@@ -23,14 +23,12 @@ public class RoomService {
 
     private final SeatRepository seatRepo;
     private final Room cinemaRoom;
-    private final SeatDtoMapper seatDtoMapper;
     private final Statistics stats;
 
     @Autowired
-    public RoomService(SeatRepository seatRepo, Room cinemaRoom, SeatDtoMapper seatDtoMapper, Statistics stats) {
+    public RoomService(SeatRepository seatRepo, Room cinemaRoom, Statistics stats) {
         this.seatRepo = seatRepo;
         this.cinemaRoom = cinemaRoom;
-        this.seatDtoMapper = seatDtoMapper;
         this.stats = stats;
     }
 
@@ -51,7 +49,7 @@ public class RoomService {
 
         this.stats.purchaseTicket(seat);
 
-        return this.seatDtoMapper.getSeatDTO(seat);
+        return SeatDtoMapper.getSeatDTO(seat);
     }
 
     public ReturnedTicketDTO returnTicket(String token) {

@@ -1,11 +1,8 @@
 package cinema.business.seat;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class SeatDtoMapper {
-
-    public SeatDTO getSeatDTO(Seat seat) {
+    public static SeatDTO getSeatDTO(Seat seat) {
         return new SeatDTO(
                 seat.getToken(),
                 seat
