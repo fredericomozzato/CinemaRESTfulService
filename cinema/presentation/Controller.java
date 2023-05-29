@@ -28,20 +28,18 @@ public class Controller {
 
     private final Room cinemaRoom;
     private final RoomService roomService;
-    private final RoomDtoMapper dtoMapper;
     private final StatisticsService statsService;
 
     @Autowired
-    public Controller(Room cinemaRoom, RoomService roomService, RoomDtoMapper dtoMapper, StatisticsService statsService) {
+    public Controller(Room cinemaRoom, RoomService roomService, StatisticsService statsService) {
         this.cinemaRoom = cinemaRoom;
         this.roomService = roomService;
-        this.dtoMapper = dtoMapper;
         this.statsService = statsService;
     }
 
     @GetMapping("/seats")
     public RoomDTO getSeats() throws JsonProcessingException {
-        return this.dtoMapper.mapToDTO(
+        return RoomDtoMapper.mapToDTO(
                 this.cinemaRoom
         );
     }

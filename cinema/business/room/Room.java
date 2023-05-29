@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Component
 public class Room {
@@ -55,14 +57,9 @@ public class Room {
     @JsonProperty("available_seats")
     public List<Seat> getSeats() {
         Iterable<Seat> seats = this.repo.findAll();
-        List<Seat> availableSeats = new ArrayList<>();
-
-        seats.forEach(seat -> {
-            if (seat.isPurchased()) {
-                availableSeats.add(seat);
-            }
-        });
-        return availableSeats;
+        return StreamSupport.stream(seats.spliterator(), false)
+                .filter(seat -> !seat.isPurchased())
+                .collect(Collectors.toList());
     }
 
     public int getAvailableSeatNumber() {
