@@ -8,19 +8,17 @@ import org.springframework.stereotype.Service;
 public class StatisticsService {
 
     private final Statistics stats;
-    private final StatisticsDtoMapper statisticsDtoMapper;
 
     @Autowired
-    public StatisticsService(Statistics stats, StatisticsDtoMapper statisticsDtoMapper) {
+    public StatisticsService(Statistics stats) {
         this.stats = stats;
-        this.statisticsDtoMapper = statisticsDtoMapper;
     }
 
     public StatisticsDTO getStats(String password) {
         if (password == null || !this.validatePassword(password)) {
             throw new WrongPasswordException("The password is wrong!");
         } else {
-            return this.statisticsDtoMapper.getStatsDTO(this.stats);
+            return StatisticsDtoMapper.getStatsDTO(this.stats);
         }
      }
 
