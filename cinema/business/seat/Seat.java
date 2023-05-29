@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.seat;
 
 import cinema.persistence.SeatId;
 import com.fasterxml.jackson.annotation.JsonIgnore;

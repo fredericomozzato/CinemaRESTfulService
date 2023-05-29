@@ -1,6 +1,15 @@
 package cinema.presentation;
 
-import cinema.business.*;
+import cinema.business.returnedticket.ReturnedTicketDTO;
+import cinema.business.room.Room;
+import cinema.business.room.RoomDTO;
+import cinema.business.room.RoomDtoMapper;
+import cinema.business.room.RoomService;
+import cinema.business.seat.SeatDTO;
+import cinema.business.seat.SeatRequest;
+import cinema.business.statistics.StatisticsDTO;
+import cinema.business.statistics.StatisticsService;
+import cinema.business.util.TokenRequest;
 import cinema.exceptionhandling.NonExistingSeatException;
 import cinema.exceptionhandling.UnavailableTicketException;
 import cinema.exceptionhandling.WrongPasswordException;
@@ -44,7 +53,6 @@ public class Controller {
 
     @PostMapping("/return")
     public ReturnedTicketDTO returnTicket(@RequestBody TokenRequest token) {
-//        System.out.println("Token from JSON: " + token);
         return this.roomService.returnTicket(token.getToken());
     }
 

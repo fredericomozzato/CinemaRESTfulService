@@ -1,6 +1,7 @@
-package cinema.business;
+package cinema.business.statistics;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import cinema.business.room.Room;
+import cinema.business.seat.Seat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

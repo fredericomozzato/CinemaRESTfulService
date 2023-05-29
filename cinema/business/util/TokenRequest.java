@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.util;
 
 public class TokenRequest {
 

@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.statistics;
 
 import org.springframework.stereotype.Component;
 

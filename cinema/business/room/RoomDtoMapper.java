@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.room;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

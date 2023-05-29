@@ -1,5 +1,12 @@
-package cinema.business;
+package cinema.business.room;
 
+import cinema.business.returnedticket.ReturnedTicketDTO;
+import cinema.business.returnedticket.ReturnedTicketDtoMapper;
+import cinema.business.seat.Seat;
+import cinema.business.seat.SeatDTO;
+import cinema.business.seat.SeatDtoMapper;
+import cinema.business.seat.SeatRequest;
+import cinema.business.statistics.Statistics;
 import cinema.persistence.SeatRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +24,13 @@ public class RoomService {
     private final SeatRepository seatRepo;
     private final Room cinemaRoom;
     private final SeatDtoMapper seatDtoMapper;
-    private final ReturnedTicketDtoMapper returnedTicketDtoMapper;
     private final Statistics stats;
 
     @Autowired
-    public RoomService(SeatRepository seatRepo, Room cinemaRoom, SeatDtoMapper seatDtoMapper, ReturnedTicketDtoMapper returnedTicketDtoMapper, Statistics stats) {
+    public RoomService(SeatRepository seatRepo, Room cinemaRoom, SeatDtoMapper seatDtoMapper, Statistics stats) {
         this.seatRepo = seatRepo;
         this.cinemaRoom = cinemaRoom;
         this.seatDtoMapper = seatDtoMapper;
-        this.returnedTicketDtoMapper = returnedTicketDtoMapper;
         this.stats = stats;
     }
 
@@ -58,6 +63,6 @@ public class RoomService {
 
         this.stats.returnTicket(returnedSeat);
 
-        return this.returnedTicketDtoMapper.mapToReturnedTicketDto(returnedSeat);
+        return ReturnedTicketDtoMapper.mapToReturnedTicketDto(returnedSeat);
     }
 }

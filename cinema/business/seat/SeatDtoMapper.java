@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.seat;
 
 import org.springframework.stereotype.Component;
 

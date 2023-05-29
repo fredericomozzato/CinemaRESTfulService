@@ -1,6 +1,6 @@
 package cinema.persistence;
 
-import cinema.business.Seat;
+import cinema.business.seat.Seat;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

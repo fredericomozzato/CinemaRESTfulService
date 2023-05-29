@@ -1,5 +1,6 @@
-package cinema.business;
+package cinema.business.room;
 
+import cinema.business.seat.Seat;
 import cinema.exceptionhandling.UnavailableTicketException;
 import cinema.exceptionhandling.WrongTokenException;
 import cinema.persistence.SeatRepository;

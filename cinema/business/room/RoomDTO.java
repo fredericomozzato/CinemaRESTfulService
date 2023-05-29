@@ -1,4 +1,6 @@
-package cinema.business;
+package cinema.business.room;
+
+import cinema.business.seat.Seat;
 
 import java.util.List;
 

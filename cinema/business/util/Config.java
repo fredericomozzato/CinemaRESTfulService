@@ -1,5 +1,6 @@
-package cinema.business;
+package cinema.business.util;
 
+import cinema.business.seat.Seat;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

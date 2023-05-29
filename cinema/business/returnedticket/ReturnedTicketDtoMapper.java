@@ -1,11 +1,11 @@
-package cinema.business;
+package cinema.business.returnedticket;
 
+import cinema.business.seat.Seat;
 import org.springframework.stereotype.Component;
 
-@Component
 public class ReturnedTicketDtoMapper {
 
-    public ReturnedTicketDTO mapToReturnedTicketDto(Seat seat) {
+    public static ReturnedTicketDTO mapToReturnedTicketDto(Seat seat) {
         return new ReturnedTicketDTO(
                 seat
         );

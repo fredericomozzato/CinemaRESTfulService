@@ -1,4 +1,4 @@
-package cinema.business;
+package cinema.business.statistics;
 
 import cinema.exceptionhandling.WrongPasswordException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,4 @@
-package cinema.business;
-
-import org.springframework.stereotype.Component;
+package cinema.business.seat;
 
 import java.util.UUID;
 
