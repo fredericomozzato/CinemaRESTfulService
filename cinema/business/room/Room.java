@@ -4,20 +4,17 @@ import cinema.business.seat.Seat;
 import cinema.exceptionhandling.UnavailableTicketException;
 import cinema.exceptionhandling.WrongTokenException;
 import cinema.persistence.SeatRepository;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Component
 public class Room {
 
-    @JsonProperty("total_rows")
     private int numberOfRows;
-    @JsonProperty("total_columns")
     private int seatsPerRow;
     private List<Seat> seats;
     private final SeatRepository repo;
@@ -53,12 +50,8 @@ public class Room {
         this.seatsPerRow = seatsPerRow;
     }
 
-    @JsonProperty("available_seats")
     public List<Seat> getSeats() {
-        Iterable<Seat> seats = this.repo.findAll();
-        return StreamSupport.stream(seats.spliterator(), false)
-                .filter(seat -> !seat.isPurchased())
-                .collect(Collectors.toList());
+        return this.repo.findByPurchased(false);
     }
 
     public int getAvailableSeatNumber() {
